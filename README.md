@@ -6,7 +6,20 @@ RandomColor is an expansion, that makes it possible for you to return a random c
 ### `%randomcolor_all%`
 Returns a random color or formatting code.
 
-#### Color codes:
+### `%randomcolor_color%`
+Returns a random [color code](#color-codes)
+
+### `%randomcolor_format%`
+Returns a random [formatting code](#formatting-codes)
+
+### `%randomcolor_selected_<option1,option2,...>%`
+Returns a random value from the provided ones.
+
+**Example**: `%randomcolor_selected_1,3,9,b%` either returns `§1` (Dark Blue), `§3` (Dark Aqua), `§9` (Blue) or `§b` (Aqua).
+
+## Color and formatting codes
+
+### Color codes:
 | Code | Color        | Hex value |
 | ---- | ------------ | --------- |
 | `0`  | Black        | `#000000` |
@@ -26,7 +39,7 @@ Returns a random color or formatting code.
 | `e`  | Yellow       | `#FFFF55` |
 | `f`  | White        | `#FFFFFF` |
 
-#### Formatting codes
+### Formatting codes
 | Code | Type          | Example:          |
 | ---- | ------------- | ----------------- |
 | `k`  | Obfuscated    | `No example`      |
@@ -34,14 +47,3 @@ Returns a random color or formatting code.
 | `m`  | Strikethrough | ~~Strikethrough~~ |
 | `n`  | Underline     | __Underline__     |
 | `o`  | Italic        | *Italic*          |
-
-### `%randomcolor_color%`
-Returns a random [color code](#color-codes)
-
-### `%randomcolor_format%`
-Returns a random [formatting code](#formatting-codes)
-
-### `%randomcolor_selected_<option1,option2,...>%`
-Returns a random value from the provided ones.
-
-**Example**: `%randomcolor_selected_1,3,9,b%` either returns `§1` (Dark Blue), `§3` (Dark Aqua), `§9` (Blue) or `§b` (Aqua).
