@@ -9,9 +9,9 @@ import java.util.Random;
 
 public class RandomColor extends PlaceholderExpansion {
 
-    private Random random = new Random();
+    private final Random random = new Random();
     private final String[] COLORS = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
-    private final String[] FORMAT = {"k", "l", "m", "n", "o"};
+    private final String[] FORMATS = {"k", "l", "m", "n", "o"};
 
     /**
      * The name of the expansion, which is also used in the placeholder.
@@ -34,24 +34,28 @@ public class RandomColor extends PlaceholderExpansion {
     /**
      * The version of the expansion.
      *
-     * @return {@code 1.0.0}
+     * @return {@code 1.2.0}
      */
     public String getVersion() {
-        return "1.0.1";
+        return "1.2.0";
     }
 
     private String getRandomAll(){
-        String[] all = (String[])ArrayUtils.addAll(COLORS, FORMAT);
-
-        return ChatColor.COLOR_CHAR + all[random.nextInt(all.length)];
+        String[] all = (String[])ArrayUtils.addAll(COLORS, FORMATS);
+        
+        return getRandom(all);
     }
 
     private String getRandomColor(){
-        return ChatColor.COLOR_CHAR + COLORS[random.nextInt(COLORS.length)];
+        return getRandom(COLORS);
     }
 
     private String getRandomFormat(){
-        return ChatColor.COLOR_CHAR + FORMAT[random.nextInt(FORMAT.length)];
+        return getRandom(FORMATS);
+    }
+    
+    private String getRandomCombined(){
+        return getRandomColor() + getRandomFormat();
     }
 
     private String getRandom(String[] values){
@@ -70,10 +74,11 @@ public class RandomColor extends PlaceholderExpansion {
      *             <li>{@code all} Returns a random color or formatting code. (0-9, a-f, k-o)</li>
      *             <li>{@code format} Returns a random formatting code (k-o)</li>
      *             <li>{@code color} Returns a random color code (0-9, a-f)</li>
+     *             <li>{@code combined} Returns a combination of a random color and formatting code (e.g. {@code §a§k})</li>
      *             <li>{@code selected_<options>} Returns a random options that is provided.</li>
      *         </ul>
      *
-     * @return A random color or formatting code ({@code §<0-9, a-f, k-o>}
+     * @return A random color and/or formatting code ({@code §<0-9, a-f, k-o>} depending on the selected option.
      */
     public String onRequest(OfflinePlayer player, String identifier){
 
@@ -86,6 +91,9 @@ public class RandomColor extends PlaceholderExpansion {
 
             case "color":
                 return getRandomColor();
+            
+            case "combined":
+                return getRandomCombined();
         }
 
         if(identifier.startsWith("selected_")){

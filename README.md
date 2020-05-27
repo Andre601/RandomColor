@@ -9,16 +9,21 @@ Returns a random color or formatting code.
 ### `%randomcolor_color%`
 Returns a random [color code](#color-codes)
 
+### `%randomcolor_combined%`
+Returns a random [color code](#color-codes) AND a random [formatting code](#formatting-codes).
+
 ### `%randomcolor_format%`
 Returns a random [formatting code](#formatting-codes)
 
 ### `%randomcolor_selected_<option1,option2,...>%`
-Returns a random value from the provided ones.
+Will return one of the provided option.  
+Note that you only have to provide the number/letter and not the Color character (`§`) too.  
+Please see the below [codes](#codes) for a full list.
 
-**Example**: `%randomcolor_selected_1,3,9,b%` either returns `§1` (Dark Blue), `§3` (Dark Aqua), `§9` (Blue) or `§b` (Aqua).
+**Example**:  
+`%randomcolor_selected_a,b,c,k,l%` would return either `§a`, `§b`, `§c`, `§k` or `§l`
 
-## Color and formatting codes
-
+## Codes
 ### Color codes:
 | Code | Color        | Hex value |
 | ---- | ------------ | --------- |
@@ -45,5 +50,5 @@ Returns a random value from the provided ones.
 | `k`  | Obfuscated    | `No example`      |
 | `l`  | Bold          | **Bold**          |
 | `m`  | Strikethrough | ~~Strikethrough~~ |
-| `n`  | Underline     | __Underline__     |
+| `n`  | Underline     | <u>Underline</u>  |
 | `o`  | Italic        | *Italic*          |
